@@ -1,15 +1,18 @@
 package spores
 
 import scala.spores._
+import scala.pickling.Defaults._, scala.pickling.json._
 
 /**
- * Created by levi on 16/06/15.
+ * http://docs.scala-lang.org/sips/pending/spores.html
  */
 object Main extends App {
 
   case class Person(name: String, age: Int)
   val outer1 = 0
   val outer2 = Person("Jim", 35)
+
+  println("spore inner and outer classes")
 
   val s = spore {
     val factor = 1
@@ -20,4 +23,7 @@ object Main extends App {
     }
   }
 
+  //val pkl = s.pickle
+  //val person = pkl.unpickle[Person]
+  //println(s"unpickled $person")
 }
